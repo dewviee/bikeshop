@@ -1,0 +1,19 @@
+
+
+.bs_table {
+    margin: 0;
+    }
+    
+.bs_table thead tr th {
+color: #fff;
+background-color: #999;
+
+}
+
+.bs-table .bs-price {
+    text-align: right;
+    }
+
+.bs-table .bs-center {
+    text-align: center;
+    }

@@ -1,0 +1,2 @@
+bootstrap-3.3.7
+fontawesome-free-6.1.2-web

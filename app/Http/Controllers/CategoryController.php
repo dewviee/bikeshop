@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\models\Product;
 use Config, Validator;
 
 class CategoryController extends Controller
@@ -89,6 +90,16 @@ class CategoryController extends Controller
     }
 
     public function remove($id) {
+        $products = Product::all();
+        $text = $id . "\n";
+        // check if any product use delete category
+        foreach ($products as $product) {
+            if ($product->category_id == $id) {
+                return redirect('product/edit/'.$product->id)
+                ->withErrors('หากต้องการลบประเภทสินค้านี้ ให้เปลี่ยนประเภทของสินค้านี้ก่อน'  );
+            }
+        }
+
         Category::find($id)->delete();
         
         return redirect('category')

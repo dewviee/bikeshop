@@ -5,6 +5,17 @@
 <div class="container">
 
     <h1>รายการประเภทสินค้า</h1>
+
+    {{-- Show error when error --}}
+    @if($errors->any())
+    <div class="alert alert-danger">
+        @foreach ($errors->all() as $error)
+        <div>{{ $error }}</div>
+        @endforeach
+    </div>
+    @endif
+
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <div class="panel-title"><strong>รายการ</strong></div>
@@ -19,7 +30,6 @@
                 <button type="submit" class="btn btn-primary">ค้นหา</button>
                 <a href="{{ URL::to('category/edit') }}" class="btn btn-success pull-right">เพิ่มประเภทสินค้า</a>
             </form> 
-            
         </div>
 
         <table class="table table-bordered bs_table">

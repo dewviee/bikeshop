@@ -72,9 +72,10 @@
 </div> {{-- End of container --}}
 <script>
     // ใช้เทคนิค jQuery
-    $('.btn-delete').on('click', function() { if(confirm("คุณต้องการลบข้อมูลสินค้าหรือไม่?")) {
-    var url = "{{ URL::to('product/remove') }}"
-    + '/' + $(this).attr('id-delete'); window.location.href = url;
+    $('.btn-delete').on('click', function() { 
+        if(confirm("คุณต้องการลบข้อมูลสินค้าหรือไม่?")) {
+            var url = "{{ URL::to('product/remove') }}"
+            + '/' + $(this).attr('id-delete'); window.location.href = url;
     }
     });
     </script>

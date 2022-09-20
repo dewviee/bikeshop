@@ -1,5 +1,5 @@
 @extends("layouts.master")
-@section('title') BikeShop | รายการสินค้า @stop
+@section('title') BikeShop | อุปกรณ์จักรยาน, อะไหล่, ชุดแข่ง และอุปกรณ์ตกแต่ง @stop
 @section('content')
 
 <div class="container">

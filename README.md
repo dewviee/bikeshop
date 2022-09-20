@@ -6,7 +6,6 @@ Bikeshop in Advanced Programming in KMUTNB.
 ```composer install```
 
 ## create .env
-Create .env and then set database
 ```copy .env.example .env```
 
 ## Migrate Data

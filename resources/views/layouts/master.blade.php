@@ -9,9 +9,10 @@
         <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/all.min.css') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('vendor/toastr/toastr.min.css') }}">
+                <!-- js -->
+        <script src="{{ asset('js/angular.min.js') }}"></script>
         <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
         <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
-
     </head>
 
     <body>

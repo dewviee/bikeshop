@@ -9,10 +9,10 @@ Bikeshop in Advanced Programming in KMUTNB.
 Create .env and then set database
 ```copy .env.example .env```
 
-## Migrate and seeding data
-migrate
+## Migrate Data
 ```php artisan migrate```
-seeding
+
+## Seed Data
 ```php artisan db:seed```
 
 

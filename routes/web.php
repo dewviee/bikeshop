@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +24,7 @@ Route::get('/product', [ProductController::class, 'index']);
 Route::get('/category', [CategoryController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
 
+
 Route::get('/product/search', [ProductController::class, 'search']);
 Route::post('/product/search', [ProductController::class, 'search']);
 Route::get('/product/category', [CategoryController::class, 'category']);
@@ -30,7 +32,6 @@ Route::get('/product/edit/{id?}', [ProductController::class, 'edit']);
 Route::post('/product/insert', [ProductController::class, 'insert']);
 Route::post('/product/update', [ProductController::class, 'update']);
 Route::get('/product/remove/{id}', [ProductController::class, 'remove']);
-
 
 Route::get('/category/search', [CategoryController::class,'search']);
 Route::post('/category/search', [CategoryController::class, 'search']);

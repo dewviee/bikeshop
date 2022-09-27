@@ -4,9 +4,7 @@
 
 <div class="container" ng-app="app" ng-controller="ctrl">
     <center><h1>@{ helloMessage }</h1></center> 
-
     <input type="text" class="form-control" ng-model="query.name" placeholder="ค้นหา">
-
     <br>
     <table class="table table-bordered">
         

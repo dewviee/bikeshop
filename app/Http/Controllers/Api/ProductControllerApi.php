@@ -24,6 +24,12 @@ class ProductControllerApi extends Controller
     }
 
     public function product_search(Request $request) {
+        /*
+        Sourced: https://stackoverflow.com/questions/48007222/parameterbag-could-not-be-converted-to-string-laravel-5-5
+        $request->query 
+        is an object of type ParameterBag which contains the Query Params for GET Requests.
+        You should rather use $request->get('query') in these circumstances
+        */
         $query = $request->get('query');
         
         if($query) {

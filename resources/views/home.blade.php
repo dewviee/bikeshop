@@ -3,6 +3,11 @@
 @section('content')
 
 <div class="container" ng-app="app" ng-controller="ctrl">
+    <div class="pull-right" style="margin-top:10px">
+        {{-- Search Box --}}
+        <input type="text" class="form-control" ng-model="query"
+        ng-keyup="searchProduct($event)" style="width:190px" placeholder="พิมพ์ชื่อสินค้าเพื่อค้นหา">
+    </div>
     <div class="row">
         <div class="col-md-3">
             <div class="list-group">
@@ -15,20 +20,14 @@
             </div>
         </div>
         <div class="col-md-9"> 
-            <div class="pull-right" style="margin-top:10px">
-                {{-- Search Box --}}
-                <input type="text" class="form-control" ng-model="query"
-                ng-keyup="searchProduct($event)" style="width:190px" placeholder="พิมพ์ชื่อสินค้าเพื่อค้นหา">
-            </div>
             <div class="row">
-                <h3 ng-if="!filterProduct.length">ไม่พบข้อมูลสินค้า </h3>
-                <div class="col-md-3" ng-repeat="p in filterProduct = (products|filter:query)"> 
+                <h3 ng-if="!products.length">ไม่พบข้อมูลสินค้า </h3>
+                <div class="col-md-3" ng-repeat="p in products"> 
                     <!-- product card -->
                     <div class="panel panel-default bs-product-card" >
                         <div class="panel-body"> 
                             <img src="@{p.image_url}" class="img-responsive image-center"> 
-                            <h4><a href="#">@{ p.name }</a></h4>
-
+                            <h4><a href="#">@{ p.name }</a></h4>                  
                             <div class="form-group">
                                 <div>ประเภท: @{}
                                 <div>คงเหลือ: @{p.stock_qty}</div>
@@ -43,7 +42,6 @@
                 </div>
             </div>
         </div>
-        
     </div>
 </div>
 
@@ -108,8 +106,6 @@
             });
         }
     });
-
-
 </script>
 
 @endsection

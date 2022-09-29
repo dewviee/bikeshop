@@ -2,38 +2,51 @@
 @section('title') BikeShop | อุปกรณ์จักรยาน, อะไหล่, ชุดแข่ง และอุปกรณ์ตกแต่ง @stop
 @section('content')
 
+
 <div class="container" ng-app="app" ng-controller="ctrl">
-    <div class="pull-right" style="margin-top:10px">
-        {{-- Search Box --}}
-        <input type="text" class="form-control" ng-model="query"
-        ng-keyup="searchProduct($event)" style="width:190px" placeholder="พิมพ์ชื่อสินค้าเพื่อค้นหา">
-    </div>
+
+  
+    <div class="row">
+        <div class="col-md-3">
+            <h2>สินค้าในร้าน</h2>
+        </div>
+        <div class="col-md-6"> 
+            <h3 ng-if="!products.length">ไม่พบข้อมูลสินค้า </h3>
+        </div>
+        <div class="col-md-3">
+            <div class="pull-right" style="margin-top:10px">
+                {{-- Search Box --}}
+                <input type="text" class="form-control" ng-model="query"
+                ng-keyup="searchProduct($event)" style="width:190px" placeholder="พิมพ์ชื่อสินค้าเพื่อค้นหา">
+            </div>
+        </div>
+      </div>
+  
+    
     <div class="row">
         <div class="col-md-3">
             <div class="list-group">
                 {{-- sidebar --}}
                 <a href="#" class="list-group-item"
                 ng-class="{'active': category == null}" ng-click="getProductList(null)">ทั้งหมด</a>
-                
                 <a href="#" class="list-group-item" ng-repeat="c in categories"
                 ng-click="getProductList(c)" ng-class="{'active': category.id == c.id}">@{c.name}</a>
             </div>
         </div>
         <div class="col-md-9"> 
             <div class="row">
-                <h3 ng-if="!products.length">ไม่พบข้อมูลสินค้า </h3>
+                
                 <div class="col-md-3" ng-repeat="p in products"> 
                     <!-- product card -->
                     <div class="panel panel-default bs-product-card" >
                         <div class="panel-body"> 
-                            <img src="@{p.image_url}" class="img-responsive image-center"> 
+                            <img src="@{p.image_url}" class="img-responsive image-center "> 
                             <h4><a href="#">@{ p.name }</a></h4>                  
                             <div class="form-group">
-                                <div>ประเภท: @{}
+                                <div>ประเภท: @{} </div>
                                 <div>คงเหลือ: @{p.stock_qty}</div>
                                 <div>ราคา <strong>@{p.price}</strong> บาท</div>
                             </div>
-                            
                             <a href="#" class="btn btn-success btn-block">
                             <i class="fa fa-shopping-cart"></i> หยิบใส่ตะกร้า</a>
                         </div>

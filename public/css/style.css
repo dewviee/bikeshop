@@ -27,7 +27,7 @@ background-color: #999;
 
 
 .bs-product-card {
-    min-height: 290px; text-align: center; position: relative;
+    min-height: 300px; text-align: center; position: relative;
 }
     
 .bs-product-card img { 

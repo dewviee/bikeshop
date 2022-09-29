@@ -43,7 +43,6 @@
                             <img src="@{p.image_url}" class="img-responsive image-center "> 
                             <h4><a href="#">@{ p.name }</a></h4>                  
                             <div class="form-group">
-                                <div>ประเภท: @{} </div>
                                 <div>คงเหลือ: @{p.stock_qty}</div>
                                 <div>ราคา <strong>@{p.price}</strong> บาท</div>
                             </div>

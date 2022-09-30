@@ -2,17 +2,21 @@
 Bikeshop in Advanced Programming in KMUTNB.
 
 # To run Project
+
 ## Install Composer
-```composer install```
+```cmd
+composer install
+```
 
 ## create .env
-```copy .env.example .env```
+```cmd
+copy .env.example .env
+```
 
 ## Migrate Data
-```php artisan migrate```
-
-## Seed Data
-```php artisan db:seed```
+```cmd
+php artisan migrate
+```
 
 
 

@@ -8,6 +8,11 @@ Bikeshop in Advanced Programming in KMUTNB.
 composer install --ignore-platform-reqs
 ```
 
+if get error. use
+```cmd
+composer install
+```
+
 ## create .env
 ```cmd
 copy .env.example .env

@@ -28,6 +28,20 @@
                         <li><a href="{{ URL::to('category') }}">ข้อมูลประเภทสินค้า</a></li>
                         <li><a href="#">รายงาน</a></li>
                     </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="{{ URL::to('cart/view') }}"> <i class="fa fa-shopping-cart"></i> ตะกร้า
+                            <span class="label label-danger">
+                                       @if (Session::has('cart_items'))
+                                            {{ count(Session::get('cart_items')) }}
+                                       @else
+                                            {{ count(array()) }}
+                                      @endif
+                            </span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>

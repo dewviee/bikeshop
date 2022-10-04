@@ -50,7 +50,6 @@ class ProductController extends Controller
         $product->category_id = $request->category_id;
         $product->price = $request->price;
         $product->stock_qty = $request->stock_qty;
-        $product->id = count(Product::all())+1;
         $product->save();
 
         if($request->hasFile('image')){

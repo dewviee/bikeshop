@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
-class CartController extends Controller
-{
+use App\Models\Product;
+use App\Models\Category;
+
+class CartController extends Controller{
     public function viewCart() {
-        return view('cart/index');
+        $cart_items = Session::get('cart_items');
+        return view('cart/index', compact('cart_items'));
     }
         
     public function addToCart($id) {
@@ -33,6 +37,21 @@ class CartController extends Controller
         );
         Session::put('cart_items', $cart_items);
         return redirect('cart/view');
-        
+
     }
+
+    public function deleteCart($id) {
+        $cart_items = Session::get('cart_items');
+        unset($cart_items[$id]);
+        Session::put('cart_items', $cart_items);
+        return redirect('cart/view');
+    }
+
+    public function updateCart($id, $qty) {
+        $cart_items = Session::get('cart_items');
+        $cart_items[$id]['qty'] = $qty;
+        Session::put('cart_items', $cart_items);
+        return redirect('cart/view');
+        }
+    
 }

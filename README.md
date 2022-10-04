@@ -5,7 +5,7 @@ Bikeshop in Advanced Programming in KMUTNB.
 
 ## Install Composer
 ```cmd
-composer install
+composer install --ignore-platform-reqs
 ```
 
 ## create .env

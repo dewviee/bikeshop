@@ -9,6 +9,11 @@ use App\Models\Product;
 use App\Models\Category;
 
 class CartController extends Controller{
+    public function __construct() { 
+        $this->middleware('auth');
+    }
+
+
     public function viewCart() {
         $cart_items = Session::get('cart_items');
         return view('cart/index', compact('cart_items'));

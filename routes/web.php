@@ -19,7 +19,7 @@ use \App\Http\Controllers\Auth\LoginController;
 */
 
 Route::get('/', function () {
-    return view('layouts.master');
+    return view('home');
 });
 
 Route::get('/product', [ProductController::class, 'index']);

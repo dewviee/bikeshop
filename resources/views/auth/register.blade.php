@@ -3,6 +3,9 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        <div class="col-md-2"> 
+            
+        </div>
         <div class="col-md-8">
             <div class="card">
                 <div class="card">    
@@ -18,7 +21,7 @@
                                 <form method="POST" action="{{ route('register') }}">
                                     @csrf
                                     <div class="row mb-3">
-                                        <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                        <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('ชื่อผู้ใช้') }}</label>
             
                                         <div class="col-md-6">
                                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -32,7 +35,7 @@
                                     </div>
             
                                     <div class="row mb-3">
-                                        <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
+                                        <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('ที่อยู่อีเมล') }}</label>
             
                                         <div class="col-md-6">
                                             <input id="email" type="email" class="form-control 
@@ -48,10 +51,10 @@
                                     </div>
             
                                     <div class="row mb-3">
-                                        <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
+                                        <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('รหัสผ่าน') }}</label>
             
                                         <div class="col-md-6">
-                                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                            <input id="password" type="password" class="form-control @error('w') is-invalid @enderror" name="password" required autocomplete="new-password">
             
                                             @error('password')
                                                 <span class="invalid-feedback" role="alert">
@@ -62,7 +65,7 @@
                                     </div>
             
                                     <div class="row mb-3">
-                                        <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
+                                        <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('กรอกรหัสผ่านอีกครั้ง') }}</label>
             
                                         <div class="col-md-6">
                                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">

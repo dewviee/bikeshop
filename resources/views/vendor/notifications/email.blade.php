@@ -1,4 +1,15 @@
 @component('mail::message')
+
+{{-- 
+    to edit subject. 
+    You need to go in config/mail.php
+    chage name in from.
+    'from' => [
+        'name' => env('MAIL_FROM_NAME', '*** EDIT HERE ****'),
+    ],
+    
+    --}}
+
 {{-- Greeting --}}
 @if (! empty($greeting))
 # {{ $greeting }}
@@ -11,10 +22,7 @@
 @endif
 
 {{-- Intro Lines --}}
-@foreach ($introLines as $line)
-{{ $line }}
-
-@endforeach
+@lang("คุณได้รีบอีเมลในการเปลี่ยนรหัสผ่าน")
 
 {{-- Action Button --}}
 @isset($actionText)
@@ -34,25 +42,20 @@
 @endisset
 
 {{-- Outro Lines --}}
-@foreach ($outroLines as $line)
-{{ $line }}
-
-@endforeach
+@lang("ให้คุณ Reset Password เพื่อที่จะสามารถเข้าสู่ระบบได้\n\n")
 
 {{-- Salutation --}}
-@if (! empty($salutation))
-{{ $salutation }}
-@else
-@lang('Regards'),<br>
+@lang("ขอแสดงความนับถือ \n")
+
+{{-- @lang('Regards'),<br> --}}
 {{ config('app.name') }}
-@endif
 
 {{-- Subcopy --}}
 @isset($actionText)
 @slot('subcopy')
 @lang(
-    "If you're having trouble clicking the \":actionText\" button, copy and paste the URL below\n".
-    'into your web browser:',
+    "คลิกที่ปุ่ม \":actionText\" หรือคลิกที่ลิงก์นี้เพื่อเปลี่ยนรหัสผ่าน: "
+    ,
     [
         'actionText' => $actionText,
     ]

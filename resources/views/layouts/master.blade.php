@@ -47,7 +47,9 @@
                         <li><a href="{{ route('login') }}">ล็อกอิน</a></li>
                         <li><a href="{{ route('register') }}">ลงทะเบียน</a></li> @else
                         <li><a href="#">{{ Auth::user()->name }} </a></li>
-                        <li><a href="#">ออกจากระบบ </a></li> @endguest
+                        <li><a href="{{URL::to('logout')}}">ออกจากระบบ </a></li> 
+                        
+                        @endguest
                     </ul>
                 </div>
             </div>

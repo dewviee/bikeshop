@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
+use \App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,8 @@ Route::get('/cart/view',[CartController::class,'viewCart']);
 Route::get('/cart/add/{id}',[CartController::class,'addToCart']);
 Route::get('cart/delete/{id}',[CartController::class,'deleteCart']);
 Route::get('/cart/update/{id}/{qty}', [CartController::class, 'updateCart']);
+
 Auth::routes();
+Route::get('/logout', [LoginController::class,'logout']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

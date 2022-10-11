@@ -10,7 +10,7 @@ composer install
 
 if get error. use
 ```cmd
-composer install--ignore-platform-reqs
+composer install --ignore-platform-reqs
 ```
 
 ## create .env

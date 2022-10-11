@@ -23,15 +23,17 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ URL::to('home') }}">Home</a></li>
-                        <li><a href="{{ URL::to('product') }}">ข้อมูลสินค้า </a></li>
+                        <li><a href="{{ URL::to('home') }}">หน้าแรก</a></li>@guest
+                        @else
+                        <li><a href="{{ URL::to('product') }}">จัดการข้อมูลสินค้า </a></li>
                         <li><a href="{{ URL::to('category') }}">ข้อมูลประเภทสินค้า</a></li>
-                        <li><a href="#">รายงาน</a></li>
+                        <li><a href="#">รายงาน</a></li>@endguest
                     </ul>
 
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="{{ URL::to('cart/view') }}"> <i class="fa fa-shopping-cart"></i> ตะกร้า
+                            <a href="{{ URL::to('cart/view') }}"> <i class="fa fa-shopping-cart"></i>
+                                 ตะกร้า
                             <span class="label label-danger">
                                        @if (Session::has('cart_items'))
                                             {{ count(Session::get('cart_items')) }}
@@ -41,13 +43,15 @@
                             </span>
                             </a>
                         </li>
+                        @guest
+                        <li><a href="{{ route('login') }}">ล็อกอิน</a></li>
+                        <li><a href="{{ route('register') }}">ลงทะเบียน</a></li> @else
+                        <li><a href="#">{{ Auth::user()->name }} </a></li>
+                        <li><a href="#">ออกจากระบบ </a></li> @endguest
                     </ul>
                 </div>
             </div>
         </nav>
-        <center><h2>User ID: 6306021620191 </h1> </center>
-        <center><h2>User Name: สหรัถ ทองอินทร์ </h1> </center><br> 
-        
         <br>
 
         <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>

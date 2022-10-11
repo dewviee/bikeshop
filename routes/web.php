@@ -45,3 +45,6 @@ Route::get('/cart/view',[CartController::class,'viewCart']);
 Route::get('/cart/add/{id}',[CartController::class,'addToCart']);
 Route::get('cart/delete/{id}',[CartController::class,'deleteCart']);
 Route::get('/cart/update/{id}/{qty}', [CartController::class, 'updateCart']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

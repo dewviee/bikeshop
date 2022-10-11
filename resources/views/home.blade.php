@@ -46,8 +46,13 @@
                                 <div>คงเหลือ: @{p.stock_qty}</div>
                                 
                             </div>
+                            @guest
+                            <a href="#" class="btn btn-success btn-block" ng-click="loginFirst()">
+                                <i class="fa fa-shopping-cart"></i> หยิบใส่ตะกร้า</a>
+                            @else
                             <a href="#" class="btn btn-success btn-block" ng-click="addToCart(p)">
                             <i class="fa fa-shopping-cart"></i> หยิบใส่ตะกร้า</a>
+                            @endguest
                         </div>
                     </div>   
                     <!-- end product card -->
@@ -96,6 +101,9 @@
 
     $scope.addToCart = function (p) {
         window.location.href = '/cart/add/' + p.id;
+    };
+    $scope.loginFirst = function () {
+        alert("โปรดล๊อกอินก่อนทำการเพิ่มสินค้าในตระกร้า")
     };
 });
 

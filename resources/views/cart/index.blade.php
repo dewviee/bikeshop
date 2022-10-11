@@ -8,7 +8,7 @@
     </div>
 
     <div class="panel panel-default">
-        @if(count($cart_items))
+        @if($cart_items)
         <?php $sum_price = 0 ?>
         <?php $sum_qty = 0 ?>
         

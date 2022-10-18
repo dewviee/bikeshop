@@ -34,6 +34,7 @@
                         type="number" class="form-control" 
                         value="{{ $c['qty'] }}" 
                         size="1"
+                        min="1"
                         onchange="updateCart({{$c['id']}}, this)"
                         {{-- onKeyUp="updateCart({{$c['id']}}, this)" --}}
                         >

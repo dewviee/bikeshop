@@ -64,6 +64,9 @@ class ProductController extends Controller
             // save image path to database
             $product->image_url = $relative_path;
             $product->save(); 
+        }else{
+            $product->image_url = 'upload/images/no-image.jpg';
+            $product->save(); 
         }
             
 

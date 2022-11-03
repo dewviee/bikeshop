@@ -5,6 +5,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\CustomerController;
 use \App\Http\Controllers\Auth\LoginController;
 
 
@@ -49,9 +51,34 @@ Route::get('cart/delete/{id}',[CartController::class,'deleteCart']);
 Route::get('/cart/update/{id}/{qty}', [CartController::class, 'updateCart']);
 Route::get('/cart/checkout',[CartController::class, 'checkout']);
 Route::get('/cart/complete',[CartController::class, 'complete']);
-Route::get('/cart/finish',[CartController::class, 'finish_order']);
+Route::post('/cart/finish',[CartController::class, 'finish']);
 
 Auth::routes();
 Route::get('/logout', [LoginController::class,'logout']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('/order')->group(function() {
+
+    Route::get('/', [OrderController::class, 'index']);
+    
+    Route::prefix('/detail')->group(function() {
+        Route::get('/{id}', [OrderController::class, 'detail']);
+        Route::get('/changeStatusOrder/{id}/{status}', [OrderController::class, 'changeStatusOrder']);
+    });
+    
+    Route::get('/receipt/{id}', [OrderController::class, 'receipt']);
+
+});
+
+
+
+Route::prefix('/customer')->group(function() {
+
+    Route::get('/', [CustomerController::class, 'index']);
+    // Route::get('/add', [CustomerController::class, '?']);
+    Route::get('/action/{id}', [CustomerController::class, 'onAction']);
+    Route::post('/update', [CustomerController::class, 'onUpdate']);
+    Route::get('/delete/{id}', [CustomerController::class, 'onDelete']);
+
+});

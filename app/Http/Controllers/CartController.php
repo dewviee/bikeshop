@@ -78,6 +78,14 @@ class CartController extends Controller{
         return redirect('home');
     }
 
+    public function finish(Request $body) {
+        
+        //call function create() in OrderController.php 
+        $order_ref = app('App\Http\Controllers\OrderController')->create($body);
+        Session::remove('cart_items');
+        return view('cart.finish_order', compact('order_ref'));
+    }
+
     public function deleteCart($id) {
         $cart_items = Session::get('cart_items');
         unset($cart_items[$id]);

@@ -40,7 +40,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <strong>อีเมลล์ : </strong>
+                            <strong>อีเมล์ : </strong>
                             {{-- {{ Auth::user()->email }} --}}
                             {{ $cust_email; }}
                         </td>
@@ -78,7 +78,7 @@
                         </tr>
                     </thead>
                     <tbody class="_cart_tbody_report">
-                        @foreach ($dataCart as $item)
+                        @foreach ($order_details as $item)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $item->name }}</td>

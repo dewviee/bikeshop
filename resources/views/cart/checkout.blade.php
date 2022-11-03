@@ -8,6 +8,7 @@
         <li><a href="{{ URL::to('cart/view') }}">สินค้าในตะกร้า</a></li>
         <li class="active">ชําระเงิน</li>
     </div>
+    
     <div class="row">
         <div class="col-md-6">
             <div class="panel panel-primary">
@@ -16,6 +17,8 @@
                         <strong>รายการสินค้า</strong>
                     </div>
                 </div>
+                
+                    
                 <table class="table bs-table">
                     <thead>
                         <tr>
@@ -48,6 +51,7 @@
                         </tr>
                     </tfoot>
                 </table>
+                
             </div>
             
         </div>
@@ -60,28 +64,33 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    
+                    <form id="formCheckout" action="./finish" method="POST">
+                        @csrf
+                    <input name="cust_userid" type="text" 
+                        id="cust_userid" value="{{Auth::user()->id}}" 
+                        readonly hidden />
                     <div class="form-group">
                         <label>ชื่อ-นามสกุล</label>
                         <input type="text" class="form-control" 
-                        id="cust_name" placeholder="ชื่อ-นามสกุล" 
+                        name="cust_name" id="cust_name" placeholder="ชื่อ-นามสกุล" 
                         value="{{Auth::user()->name}}">
                     </div>
                     
                     <div class="form-group">
                         <label>อีเมล</label>
                         <input type="text" class="form-control" 
-                        id="cust_email" placeholder="อีเมล์ของท่าน"
+                        name="cust_email" id="cust_email" placeholder="อีเมล์ของท่าน"
                         value="{{Auth::user()->email}}">
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
     <a href="{{ URL::to('cart/view') }}" class="btn btn-default">ย้อนกลับ </a>
     <div class="pull-right">
-    <a href="javascript:complete()" class="btn btn-warning">พิมพ์ใบสั่งซื้อ</a>
-    <a href="javascript:finish()" class="btn btn-primary"><i class="fa fa-check"></i>จบการขาย</a>
+    {{-- <a href="javascript:complete()" class="btn btn-warning">พิมพ์ใบสั่งซื้อ</a> --}}
+    <a id="btnFinish" href="#" class="btn btn-primary"><i class="fa fa-check"></i> จบการขาย</a>
     </div>
 </div>
 
@@ -94,14 +103,25 @@
         );
     }
 
-    function finish(){
-        window.open (
-            "{{ URL::to('cart/complete') }}?cust_name="+ $('#cust_name').val() + '&cust_email='
-            + $('#cust_email').val(), 
-            "_blank",
-            window.location.href = "{{ URL::to('cart/finish') }}"
-        );
-    }
+    setTimeout(() => {
+        document.querySelector('#btnFinish').addEventListener('click', () => {
+            
+            let cust_name = document.querySelector('#cust_name').value;
+            let cust_email = document.querySelector('#cust_email').value;
+
+            if(cust_name == '' || cust_email == ''){
+                alert('กรุณากรอกข้อมูลลูกค้า');
+                return;
+            }
+
+            let formCheckout = document.querySelector('#formCheckout');
+
+            formCheckout.action = './finish'
+            formCheckout.submit();
+
+        });
+
+    }, 1000);
 
     
 
